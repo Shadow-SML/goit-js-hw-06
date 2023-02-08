@@ -3,8 +3,8 @@ const form = document.querySelector(".login-form");
 form.addEventListener("submit", (event) => {
   event.preventDefault();
 
-  const email = form.elements.email.value;
-  const password = form.elements.password.value;
+  const email = event.target.elements.email.value.trim();
+  const password = event.target.elements.password.value;
 
   if (!email || !password) {
     alert("All fields are required.");
@@ -13,5 +13,5 @@ form.addEventListener("submit", (event) => {
 
   const data = { email, password };
   console.log(data);
-  form.reset();
+  event.target.reset();
 });
